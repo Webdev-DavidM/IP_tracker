@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import React, { useState, useEffect } from 'react';
+import Map from './Map';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   const [long, setLong] = useState(2);
+   const [lat, setLat] = useState(48);
+
+   return (
+      <div className='App'>
+         <Map pos={[lat, long]} />
+         <button
+            onClick={() => {
+               setLat(3);
+               setLong(55);
+            }}>
+            Click to change pos
+         </button>
+      </div>
+   );
 }
 
 export default App;
