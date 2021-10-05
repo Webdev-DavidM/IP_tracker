@@ -4,6 +4,7 @@
 
 .app {
   height: 100vh;
+  position: relative;
 
   &__header {
     width: 100%;
@@ -29,5 +30,30 @@
     &--white {
       color: white;
     }
+  }
+
+  &__search-bar {
+    position: absolute;
+    top: 15%;
+    width: 30%;
+    left: 35%;
+    height: 3em;
+    display: flex;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  &__input {
+    width: 90%;
+    height: 100%;
+  }
+
+  &__search-button {
+    background-color: black;
+    height: 100%;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
