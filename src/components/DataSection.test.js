@@ -36,7 +36,7 @@ describe('test that each data section renders the data to the page from props', 
     expect(timezoneData.text()).toBe('UTC-05.00');
   });
   test('test if ISP data is rendered to the page', () => {
-    let ISPData = DataSectionComponent.find('[data-test="ISP"]');
+    let ISPData = DataSectionComponent.find('[data-test="isp"]');
     expect(ISPData.text()).toBe('Space X');
   });
 });
