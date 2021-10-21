@@ -10,9 +10,9 @@ export default function Map({ pos }) {
 
   return (
     <MapContainer
-      style={{ height: '50vh' }}
+      style={{ height: '80vh' }}
       center={pos}
-      zoom={2}
+      zoom={20}
       scrollWheelZoom={false}>
       <MyComponent />
       <TileLayer
@@ -20,9 +20,9 @@ export default function Map({ pos }) {
         url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
       />
       <Marker position={pos}>
-        <Popup>
+        {/* <Popup>
           A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
+        </Popup> */}
       </Marker>
     </MapContainer>
   );

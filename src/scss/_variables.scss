@@ -9,16 +9,24 @@ $font: 'Rubik', sans-serif;
 
 /* Font sizes */
 
-$font-copy: 16px;
+$font-copy: 14px;
 $font-heading: 32px;
 $font-data: 28px;
+$font-input: 20px;
 
 /* Font weight */
 
 $font-weight-small: 400;
 $font-weight-medium: 500;
-$font-weight-large: 700;
 
 /* Responsive breakpoints */
 
-$tablet: 768px;
+$tablet: 850px;
+$desktop: 1024px;
+
+/* Colours */
+
+$white: white;
+$black: black;
+$very-dark-grey: hsl(0, 0%, 17%);
+$dark-grey: hsl(0, 0%, 59%);
