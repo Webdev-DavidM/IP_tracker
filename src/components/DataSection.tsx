@@ -1,6 +1,15 @@
 import React from 'react';
 
-export default function DataSection({ data }) {
+interface Props {
+  data: {
+    isp: string;
+    timezone: string;
+    location: string;
+    ip: string;
+  };
+}
+
+export default function DataSection({ data }: Props) {
   let { isp, timezone, location, ip } = data;
   return (
     <div data-test='data-section' className='app__data-section'>
