@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
 
 export default function Map({ pos }) {
   function MyComponent() {
@@ -19,11 +19,7 @@ export default function Map({ pos }) {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
       />
-      <Marker position={pos}>
-        {/* <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup> */}
-      </Marker>
+      <Marker position={pos}></Marker>
     </MapContainer>
   );
 }

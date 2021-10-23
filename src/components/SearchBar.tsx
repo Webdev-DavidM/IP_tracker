@@ -1,16 +1,22 @@
 import React from 'react';
 import ArrowImg from '../images/icon-arrow.svg';
 
-export default function SearchBar({ searchFunction }) {
+interface Props {
+  searchFunction(search: string): void;
+}
+
+export default function SearchBar({ searchFunction }: Props) {
   const [userInput, setUserInput] = React.useState('');
-  const [error, setError] = React.useState(false);
+  const [error, setError] = React.useState('');
 
   const submit = () => {
-    if (userInput !== '') {
-      setError(false);
+    const re =
+      /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+    if (userInput.match(re)) {
+      setError('');
       searchFunction(userInput);
     } else {
-      setError(true);
+      setError('Please enter a valid id address ie 1.32.2.65');
     }
   };
 
@@ -34,7 +40,7 @@ export default function SearchBar({ searchFunction }) {
       </div>
       {error && (
         <p className='app__error' data-test='error'>
-          Please enter a value
+          {error}
         </p>
       )}
     </>

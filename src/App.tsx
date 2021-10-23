@@ -5,16 +5,27 @@ import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import DataSection from './components/DataSection';
 
+interface Props {
+  isp: string;
+  timezone: string;
+  location: string;
+  ip: string;
+}
+
 function App() {
   const [long, setLong] = useState(2);
   const [lat, setLat] = useState(48);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<null | Props>(null);
 
   useEffect(() => {
-    search();
+    search(null);
   }, []);
 
-  const search = async (ipAddress) => {
+  interface Data {
+    ip: string;
+  }
+
+  const search = async (ipAddress: string | null) => {
     let data;
     if (ipAddress) {
       data = await fetch(
@@ -22,15 +33,15 @@ function App() {
       );
     } else {
       let userIp = await fetch('https://api.ipify.org?format=json');
-      userIp = await userIp.json();
+      let userIpJson: { ip: string } = await userIp.json();
       data = await fetch(
-      `https://geo.ipify.org/api/v1?apiKey=at_NWL0fpG63VI0ZH894ZRJh7FexTgjP&ipAddress=${userIp.ip}`
-    );
+        `https://geo.ipify.org/api/v1?apiKey=at_NWL0fpG63VI0ZH894ZRJh7FexTgjP&ipAddress=${userIpJson.ip}`
+      );
     }
     data = await data.json();
     let { lat, lng, timezone } = data.location;
-    let ip= data.ip;
-    let isp = data.isp
+    let ip = data.ip;
+    let isp = data.isp;
     setData({ timezone, isp, ip, location: data.location.region });
     setLong(lng);
     setLat(lat);
@@ -39,7 +50,7 @@ function App() {
   return (
     <div className='app'>
       <SearchBar searchFunction={search} />
-      {data &&  <DataSection data={data} />}
+      {data && <DataSection data={data} />}
       <Header />
       <Map pos={[lat, long]} />
     </div>
