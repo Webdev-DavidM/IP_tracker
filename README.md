@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project allows a user to enter an IP address and see the results of where the IP address is and also gives information
+This project allows a user to enter an IP address and see the results of where the IP address is and also gives information. This project has allowed me to use Sass with the BEM methodology and also practice with typescipt and testing with jest and enzyme.
 
 ## Features
 
