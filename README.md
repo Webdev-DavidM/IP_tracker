@@ -17,7 +17,7 @@ This project allows a user to enter an IP address and see the results of where t
 
 ## Live site
 
-https://webdev-davidm.github.io/Frontend-mentors-clock/
+https://webdev-davidm.github.io/IP_tracker/
 
 ## My process
 
