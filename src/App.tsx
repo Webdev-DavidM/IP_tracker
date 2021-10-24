@@ -5,7 +5,7 @@ import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import DataSection from './components/DataSection';
 
-interface Props {
+interface dataState {
   isp: string;
   timezone: string;
   location: string;
@@ -15,7 +15,7 @@ interface Props {
 function App() {
   const [long, setLong] = useState(2);
   const [lat, setLat] = useState(48);
-  const [data, setData] = useState<null | Props>(null);
+  const [data, setData] = useState<null | dataState>(null);
 
   useEffect(() => {
     search(null);
