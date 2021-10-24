@@ -26,13 +26,13 @@ function App() {
       let data;
       if (ipAddress) {
         data = await fetch(
-          `https://geo.ipify.org/api/v1?apiKey=at_NWL0fpG63VI0ZH894ZRJh7FexTgjP&ipAddress=${ipAddress}`
+          `https://geo.ipify.org/api/v1?apiKey=${process.env.REACT_APP_API_KEY}&ipAddress=${ipAddress}`
         );
       } else {
         let userIp = await fetch('https://api.ipify.org?format=json');
         let userIpJson: { ip: string } = await userIp.json();
         data = await fetch(
-          `https://geo.ipify.org/api/v1?apiKey=at_NWL0fpG63VI0ZH894ZRJh7FexTgjP&ipAddress=${userIpJson.ip}`
+          `https://geo.ipify.org/api/v1?apiKey=${process.env.REACT_APP_API_KEY}&ipAddress=${userIpJson.ip}`
         );
       }
       data = await data.json();
