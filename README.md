@@ -12,7 +12,7 @@ This project allows a user to enter an IP address and see the results of where t
 
 ## Screenshot
 
-![](/public/images/screenshot.png)
+![](/public/images/Screenshot 2021-10-24 at 20.14.26.png)
 
 ## Live site
 
