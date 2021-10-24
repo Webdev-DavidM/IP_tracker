@@ -21,30 +21,30 @@ function App() {
     search(null);
   }, []);
 
-  interface Data {
-    ip: string;
-  }
-
   const search = async (ipAddress: string | null) => {
-    let data;
-    if (ipAddress) {
-      data = await fetch(
-        `https://geo.ipify.org/api/v1?apiKey=at_NWL0fpG63VI0ZH894ZRJh7FexTgjP&ipAddress=${ipAddress}`
-      );
-    } else {
-      let userIp = await fetch('https://api.ipify.org?format=json');
-      let userIpJson: { ip: string } = await userIp.json();
-      data = await fetch(
-        `https://geo.ipify.org/api/v1?apiKey=at_NWL0fpG63VI0ZH894ZRJh7FexTgjP&ipAddress=${userIpJson.ip}`
-      );
+    try {
+      let data;
+      if (ipAddress) {
+        data = await fetch(
+          `https://geo.ipify.org/api/v1?apiKey=at_NWL0fpG63VI0ZH894ZRJh7FexTgjP&ipAddress=${ipAddress}`
+        );
+      } else {
+        let userIp = await fetch('https://api.ipify.org?format=json');
+        let userIpJson: { ip: string } = await userIp.json();
+        data = await fetch(
+          `https://geo.ipify.org/api/v1?apiKey=at_NWL0fpG63VI0ZH894ZRJh7FexTgjP&ipAddress=${userIpJson.ip}`
+        );
+      }
+      data = await data.json();
+      let { lat, lng, timezone } = data.location;
+      let ip = data.ip;
+      let isp = data.isp;
+      setData({ timezone, isp, ip, location: data.location.region });
+      setLong(lng);
+      setLat(lat);
+    } catch (error) {
+      console.log(error);
     }
-    data = await data.json();
-    let { lat, lng, timezone } = data.location;
-    let ip = data.ip;
-    let isp = data.isp;
-    setData({ timezone, isp, ip, location: data.location.region });
-    setLong(lng);
-    setLat(lat);
   };
 
   return (
