@@ -1,4 +1,4 @@
-# Frontend Mentor - clock solution
+# IP tracker app
 
 ## Overview
 
