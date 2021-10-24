@@ -12,9 +12,9 @@ This project allows a user to enter an IP address and see the results of where t
 
 ## Screenshot
 
-![](/public/images/Screenshot 2021-10-24 at 20.14.26.png)
+![](/public/images/screenshot.png)
 
-## Live site
+## Live site          
 
 https://webdev-davidm.github.io/IP_tracker/
 
@@ -24,7 +24,7 @@ Built with
 
 - Semantic HTML5 markup
 - Leaflet npm package used to generate the map based on the IP information given.
-- SASS with BEM
+- SASS with BEM           
 - CSS flexbox
 - Typescript
 - TDD- jest and enzyme
@@ -42,3 +42,4 @@ To run this project please download and from the terminal
 - type npm i to load the dependencies
 
 - npm start to view the project.
+                  
